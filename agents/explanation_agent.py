@@ -89,8 +89,9 @@ if __name__ == '__main__':
         "You are a medical assistant. Explain in simple terms why a patient with migraine "
         "might experience headaches and sensitivity to light."
     )
+    from utils.openai_client import get_default_openai_model
     response = client.chat.completions.create(
-        model="gpt-4o",  # or 'gpt-3.5-turbo' if you don't have GPT-4 access
+        model=get_default_openai_model(),
         messages=[
             {"role": "system", "content": "You are a helpful medical assistant."},
             {"role": "user", "content": prompt}
