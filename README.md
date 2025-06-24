@@ -104,7 +104,7 @@ Welcome! This project is a real-world demonstration of how advanced AI can assis
 
 ### 7. Full Project Demo (GIF)
 
-![Project Demo GIF](screenshots/project-demo.gif)
+![Project Demo GIF](screenshots/RAG Diagnostic AI Assistant.gif)
 *End-to-end demonstration of the RAG Diagnostic AI in action: onboarding, chat, diagnosis, and agent collaboration—all in a modern, responsive UI.*
 
 ---
