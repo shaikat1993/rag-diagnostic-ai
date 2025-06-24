@@ -19,6 +19,8 @@ How it works:
 """
 import os
 from retriever.retrieve import SymptomRetriever
+# Centralized OpenAI client import (for future LLM logic)
+from utils.openai_client import get_openai_client
 
 class DiagnosticAgent:
     """

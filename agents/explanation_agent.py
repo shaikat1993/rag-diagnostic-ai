@@ -14,7 +14,7 @@ How it works:
 3. Ready to swap in LLM-powered logic when API key is available.
 """
 import os
-
+from utils.openai_client import get_openai_client
 import logging
 
 class ExplanationAgent:
@@ -73,7 +73,7 @@ class ExplanationAgent:
                 'error': str(e)
             }
 
-# Test function
+# Test function (mock logic)
 if __name__ == '__main__':
     agent = ExplanationAgent()
     context = {'conditions': ['migraine'], 'symptom': 'Headache'}
@@ -81,3 +81,22 @@ if __name__ == '__main__':
     profile = {'age': 28, 'gender': 'female', 'known_conditions': ['migraine']}
     result = agent.explain(context, recommendation, profile)
     print(f"Agent Response: {result['response']}")
+
+    # --- Real OpenAI test: comment out if you don't want to use your quota ---
+    print("\n--- Real OpenAI Test ---")
+    client = get_openai_client()
+    prompt = (
+        "You are a medical assistant. Explain in simple terms why a patient with migraine "
+        "might experience headaches and sensitivity to light."
+    )
+    response = client.chat.completions.create(
+        model="gpt-4o",  # or 'gpt-3.5-turbo' if you don't have GPT-4 access
+        messages=[
+            {"role": "system", "content": "You are a helpful medical assistant."},
+            {"role": "user", "content": prompt}
+        ],
+        max_tokens=150,
+        temperature=0.7,
+    )
+    print("OpenAI response:")
+    print(response.choices[0].message.content)

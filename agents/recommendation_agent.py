@@ -14,7 +14,7 @@ How it works:
 3. Ready to swap in LLM-powered logic when API key is available.
 """
 import os
-
+from utils.openai_client import get_openai_client
 import logging
 
 class RecommendationAgent:
