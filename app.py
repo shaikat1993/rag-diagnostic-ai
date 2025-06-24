@@ -200,7 +200,7 @@ def onboarding_section():
     if step == 1:
         with st.container():
             st.markdown("<div class='fade-step'>", unsafe_allow_html=True)
-            age = st.number_input("Enter your age", min_value=0, max_value=120, step=1, key="age_step", value=profile.get("age") or 0)
+            age = st.number_input("Enter your age", min_value=0, max_value=100, step=1, key="age_step", value=profile.get("age") or 0)
             next1 = st.button("Next: Gender", key="to_gender", help="Continue to gender selection")
             st.markdown("</div>", unsafe_allow_html=True)
             if next1:
